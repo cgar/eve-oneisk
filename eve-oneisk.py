@@ -13,9 +13,12 @@ newest = max(glob.iglob('/home/cgar/Documents/EVE/logs/Marketlogs/*'),
 content = open(newest, 'r')
 content_read = content.read()
 
+# Get the first value and substract one isk.
 regex = re.compile(r'\d+.\d+')
 result = regex.search(content_read)
-print(result.group())
+if result:
+	value = result.group()
+	value = float(value)
+	value = value - .01
 
-
-# def get_first_nbr_from_file(input_file):
+pyperclip.copy(str(value))
