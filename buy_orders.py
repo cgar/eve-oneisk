@@ -23,7 +23,7 @@ class MyHandler(FileSystemEventHandler):
         content = open(newest, 'r')
         content_read = content.read()
 
-        # Get the first value and substract one isk.
+        # Get the first value and subtract one isk.
         regex = re.compile(r'\d+.\d+')
         result = regex.search(content_read)
         if result:
